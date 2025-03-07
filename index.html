@@ -11,46 +11,46 @@
     <link rel="stylesheet" href="./styles/error.css" />
   </head>
   <body class="page">
-    <main class="content">
-      <section class="result">
-        <div class="result__video-container">
-          <video src="" controls class="result__video" poster=""></video>
+    <main class="content"> 
+      <section class="result"> 
+        <div class="result__video-container"> 
+          <video src="" controls class="result__video" poster=""></video> <!--класс элементов управления-->
         </div>
-        <form class="search-form">
-          <fieldset class="search-form__fieldset">
-            <h2 class="search-form__fieldset-title">Город</h2>
-            <label class="search-form__label">
-              <span class="search-form__label-text visually-hidden">Город</span>
+        <form class="search-form"> <!--поисковая форма-->
+          <fieldset class="search-form__fieldset"> <!-- набор полей-->
+            <h2 class="search-form__fieldset-title">Город</h2>  <!--заголовок-->
+            <label class="search-form__label"> <!--чтобы подписать элементы формы для скринридера -->
+              <span class="search-form__label-text visually-hidden">Город</span> <!--визуально скрытый -->
               <input
-                type="text"
-                placeholder="Санкт Петербург, например"
+                type="text" 
+                placeholder="Санкт-Петербург, например"
                 name="city"
-                class="search-form__textfield"
-              />
+                class="search-form__textfield" 
+              /> 
             </label>
-          </fieldset>
-          <fieldset class="search-form__fieldset">
-            <h2 class="search-form__fieldset-title">Время суток</h2>
-            <div class="search-form__checkbox-list">
-              <label class="search-form__label">
+          </fieldset> 
+          <fieldset class="search-form__fieldset"> <!--тег для группировки полей-->
+            <h2 class="search-form__fieldset-title">Время суток</h2>  <!--заголовок-->
+            <div class="search-form__checkbox-list">  <!--чекбокс-->
+              <label class="search-form__label"> <!--чтобы подписать элементы формы для скринридера-->
                 <input
-                  type="checkbox"
+                  type="checkbox" 
                   name="time"
                   value="morning"
                   class="search-form__checkbox visually-hidden"
-                />
-                <span class="search-form__pseudo-checkbox"></span>
-                <span class="search-form__label-text">Утро</span>
+                /> 
+                <span class="search-form__pseudo-checkbox"></span> <!--псевдо-флажок-->
+                <span class="search-form__label-text">Утро</span>   <!--текст-->
               </label>
-              <label class="search-form__label">
+              <label class="search-form__label"> 
                 <input
                   type="checkbox"
                   name="time"
                   value="afternoon"
                   class="search-form__checkbox visually-hidden"
-                />
-                <span class="search-form__pseudo-checkbox"></span>
-                <span class="search-form__label-text">День</span>
+                /> 
+                <span class="search-form__pseudo-checkbox"></span> 
+                <span class="search-form__label-text">День</span>  <!--текст-->
               </label>
               <label class="search-form__label">
                 <input
@@ -59,61 +59,58 @@
                   value="night"
                   class="search-form__checkbox visually-hidden"
                 />
-                <span class="search-form__pseudo-checkbox"></span>
-                <span class="search-form__label-text">Ночь</span>
+                <span class="search-form__pseudo-checkbox"></span> <!--псевдо-флажок-->
+                <span class="search-form__label-text">Ночь</span><!--текст-->
               </label>
-            </div>
-          </fieldset>
+            </div> 
+          </fieldset>  
           <button type="submit" class="button search-form__submit-button">
             Найти
           </button>
-        </form>
-      </section>
-      <section class="content__details">
+        </form>  
+      </section> 
+      <section class="content__details"> <!--2 секция -->
         <h1 class="title">
           <span class="content__accent">По-</span><br />смотри<br />в окно
         </h1>
         <ul class="content__list">
-          <!-- ЗДЕСЬ ОКАЖУТСЯ ТЕМПЛЕЙТЫ КАРТОЧЕК -->
+          <!-- ЗДЕСЬ ОКАЖУТСЯ ТЕМПЛЕЙТЫ КАРТОЧЕК
+            шаблоны пункта списка <li> -->
+              <template class="cards-list-item-template"> 
+                <li class="content__list-item"> 
+                  <a href="#0" class="content__card-link"> 
+                    <article class="content__video-card"> 
+                      <div class="content__video-card-description-container">   
+                        <h2 class="content__video-card-title"></h2>   
+                        <p class="content__video-card-description"></p>  
+                      </div> <!--контейнер закрыт-->
+                      <img src="" alt="" class="content__video-card-thumbnail" />  
+                    </article>   
+                  </a>
+                </li>
+              </template> 
+            
+            <template class="preloader-template">  
+              <div class="preloader"> 
+                <div class="preloader-chasing-squares"> 
+                  <div class="square"></div> 
+                  <div class="square"></div>
+                  <div class="square"></div>
+                  <div class="square"></div>
+                </div>
+              </div>  
+            </template></li>
+            <template class="more-button-template">  
+              <li><button class="button more-button">Показать еще</button></li>
+            </template></li>
+            <template class="error-template">  <!--контейнер для хранения HTML-кода для использования в JavaScript ошибка-шаблон-->
+              <div class="error"> <!--ошибка-->
+                <h2 class="error__title">Ошибка подключения данныx </h2>  <!--ошибка__название-->
+              </div>
+            </template>
+            <script src="./scripts/script.js"></script></li>
         </ul>
-      </section>
-    </main>
-
-    <!-- ТЕМПЛЕЙТЫ -->
-
-    <template class="preloader-template">
-      <div class="preloader">
-        <div class="preloader-chasing-squares">
-          <div class="square"></div>
-          <div class="square"></div>
-          <div class="square"></div>
-          <div class="square"></div>
-        </div>
-      </div>
-    </template>
-
-    <template class="cards-list-item-template">
-      <li class="content__list-item">
-        <a href="#0" class="content__card-link">
-          <article class="content__video-card">
-            <div class="content__video-card-description-container">
-              <h2 class="content__video-card-title"></h2>
-              <p class="content__video-card-description"></p>
-            </div>
-            <img src="" alt="" class="content__video-card-thumbnail" />
-          </article>
-        </a>
-      </li>
-    </template>
-    <template class="more-button-template">
-      <li><button class="button more-button">Показать еще</button></li>
-    </template>
-
-    <template class="error-template">
-      <div class="error">
-        <h2 class="error__title"></h2>
-      </div>
-    </template>
-    <script src="./scripts/script.js"></script>
+      </section>  
+    </main>   
   </body>
 </html>
