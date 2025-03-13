@@ -9,6 +9,9 @@ html {
 }
 
 .page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   inline-size: 1200px;
   block-size: 100%; /*размер блока*/
   margin: auto;
@@ -37,23 +40,17 @@ ol {
   list-style: none;
 }
 
-.content {  
+.content {
   /* main расположить блок .content посередине .page*/
   /*расположить элементы в строку, прижав к низу вертикальной оси*/
   /*задать горизонтальные размеры и отступы между его элементами*/
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  place-content: center;
   inline-size: 1140px;
   gap: 30px;
-  padding-block-start: 133px;
-  padding-inline-end: 30px;
-  padding-inline-start: 30px;
-  
-  
 }
 
-.visually-hidden { 
+.visually-hidden {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
   width: 1px;
@@ -63,59 +60,64 @@ ol {
   white-space: nowrap;
 }
 
-.result {  /*section first*/
+.result {
+  /*section first*/
   align-self: end;
-  
-  
 }
 
-.result__video-container { /*div*/
+.result__video-container {
+  /*div*/
   /*Задать размеры контейнеру и добавить отступ снизу*/
   inline-size: 711px;
   padding-block-end: 16px;
   position: relative;
-  inset: 0 0 0 0;
   
 }
 
-.result__video {  /*video src*/
+.result__video {
+  /*video src*/
   /*замостить видео */
   inline-size: 100%;
   object-fit: cover;
-  
 }
 
-.search-form { /*form*/
+.search-form {
+  /*form*/
   /*расположить элементы .search-form в строку и пропорционально распределить между
   ними свободное пространство, прижав их к началу контейнера*/
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  
 }
 
-.search-form__fieldset { /*fieldset*/
+.search-form__fieldset {
+  /*fieldset*/
   /*сбросить бордер у fieldset*/
-  font-family: 'Fira Sans Condensed', sans-serif;
+  font-family: "Fira Sans Condensed", sans-serif;
   font-size: 18px;
   text-decoration: transparent;
   border: none;
 }
 
-.search-form__fieldset-title {  /*h2 ГОРОД */
+.search-form__fieldset-title {
+  /*h2 ГОРОД */
   /*оформить текст элементов (вес, размер, отступы)*/
   font-weight: 400;
   font-size: 18px;
   line-height: 22px;
+}
+
+.search-form__label {
+  /*label*/
+  inline-size: fit-content; /*это свойство для подгонки элемента под размер его содержимого*/
+  display: flex;
+  align-items: center;
+  gap: 5px;
   
 }
 
-.search-form__label {  /*label*/
-  width: fit-content;/*это свойство для подгонки элемента под размер его содержимого*/
-  
-}
-
-.search-form__label:focus {  /**/
+.search-form__label:focus {
+  /**/
   outline: none;
 }
 
@@ -123,13 +125,14 @@ ol {
   border: 1px solid #fff;
 }
 
-.search-form__label-text { /*span*/
- 
-  color: white
+.search-form__label-text {
+  /*span*/
+
+  color: white;
 }
 
-
-.search-form__textfield { /*input*/
+.search-form__textfield {
+  /*input*/
   /*текстовому полю задаем appearance: none; так в разных браузерах будут нужные стили */
   border: 1px solid #fff;
   font-size: inherit;
@@ -140,145 +143,183 @@ ol {
   appearance: none;
 }
 
-.search-form__checkbox-list { /*div*/
+.search-form__checkbox-list {
+  /*div*/
   /*создана чтобы выстроить элементы в линию*/
-  width: fit-content;
+  inline-size: fit-content;
+  display: flex;
+  gap: 10px;
+
 }
 
-.search-form__checkbox {  /*input*/
+.search-form__checkbox:checked ~ .search-form__pseudo-checkbox {
+  /*input*/
+  content: "";
+  width: 15px;
+  height: 15px;
+  background-color: #fff;
+ 
+ 
 }
 
-.search-form__pseudo-checkbox { /*span*/
+.search-form__pseudo-checkbox {
+  /*span*/
   cursor: pointer;
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 19px;
   height: 19px;
   border: 1px solid #fff;
-  
+ 
+
 }
 
-.search-form__pseudo-checkbox:active { /*:active*/
-  width: 15px;
-  background-color: #fff;
-  
+.search-form__pseudo-checkbox:active {
+  /*:active*/
 }
 
-.search-form__label-text {  /*span*/
+.search-form__label-text {
+  /*span*/
   cursor: pointer;
   appearance: none;
 }
 
-.search-form__label-text:hover { /*hover*/
+.search-form__label-text:hover {
+  /*hover*/
   text-decoration: underline;
 }
 
-.button {  /*button НАЙТИ*/
-  font-family: 'Fira Sans Condensed', sans-serif;
-  cursor: pointer;
-  background-color: transparent;
+.button {
+  /*button общая НАйти и показать еще*/
+  font-family: "Fira Sans Condensed", sans-serif; 
   border: 1px solid #fff;
+  background-color: transparent;
   color: #fff;
   font-size: 18px;
-  font-weight: 700;
-  line-height: 21px;
+  line-height: 100%;
   align-items: center;
-  width: 399px;
-}
-
-
-.search-form__submit-button { /*button НАЙТИ*/
-  
-  width: 194px;
+  height: 34px;
   
 }
 
-.search-form__submit-button:hover { /*:hover*/
+.search-form__submit-button  {
+  /*button НАЙТИ*/
+ width: 194px;
+ 
+}
+
+.search-form__submit-button:hover {
+  /*:hover*/
   text-decoration: underline;
 }
 
-
-
-
 /*НАЧАЛО ВТОРОЙ СЕКЦИИ*/
-.content__details { /*section*/
+.content__details {
+  /*section*/
   /*растянуть content__details и во всю доступну ширину и высоту 
   контейнера и добавить отступы между заголовком и зоной с карточками */
   background-size: cover;
-  width: 339px;
+  inline-size: 339px;
   gap: 26px;
 }
-.title { /*h1  ПОСМОТРИ В ОКНО */
+.title {
+  /*h1  ПОСМОТРИ В ОКНО */
   /*оформить элемент .title и вложенный в него .content__accent*/
+  margin-block-end: 30px;
   font-family: Oswald, sans-serif;
   font-size: 75px;
   line-height: 70px;
   text-transform: uppercase;
-}
-
-.content__accent { /*span*/
-  color: rgba(84, 80, 80, 1);
-}
-
-.content__list { /*ul*/
-  /*Установить вертикальный размер и добавить скролл при переполнении в список ul мы ВСТАВИМ ТЕМПЛЕЙТЫ КАРТОЧЕК!!!!  */
-  block-size: 298px;
-  inline-size: 399px;
-  padding-top: 16px;
-  position: relative;
-  inset: 0 0 0 0;
-  overflow: auto;
-}
-
-
-/*ТЕМПЛЕЙТЫ используется как контейнера для хранения HTML-кода для дальнейшего использования в JavaScript*/
-/*шаблон пункта списка с карточкой видео*/
-.cards-list-item-template { /*template*/
-
-}
-
-
-.content__list-item { /*li*/
-  /*создать вертикальные отступы между элементами, у всех кроме последнего*/
-  padding-bottom: 34px;
-}
-.content__list-item li:not(:last-child) {
-  padding-inline-start: none;
   
 }
 
-.content__list-item:hover { /*hover*/
+.content__accent {
+  /*span*/
+  color: rgba(84, 80, 80, 1);
+}
+
+.content__list {
+  /*ul*/
+  /*Установить вертикальный размер и добавить скролл при переполнении в список ul мы ВСТАВИМ ТЕМПЛЕЙТЫ КАРТОЧЕК!!!!  */
+  block-size: 298px;
+  inline-size: 100%;
+  position: relative;
+  overflow-y: auto;
+  box-sizing: border-box;
+  display: block;
+  display: grid;
+  gap: 30px;
+  
+}
+
+/*ТЕМПЛЕЙТЫ используется как контейнера для хранения HTML-кода для дальнейшего использования в JavaScript*/
+/*шаблон пункта списка с карточкой видео*/
+.cards-list-item-template {
+  /*template*/
+  padding-bottom: 30px;
+}
+
+.content__list-item {
+  /*li*/
+  /*создать вертикальные отступы между элементами, у всех кроме последнего*/
+ display: grid;
+ row-gap: 30px;
+ 
+}
+.content__list-item li:not(:last-child) {
+  padding-inline-start: none;
+}
+
+.content__list-item:hover {
+  /*hover*/
   text-decoration: underline;
 }
 
-.content__card-link { /*a href*/
+.content__card-link {
+  /*a href*/
   /*убрать дефолтное подчеркивание и заменить цвет текста у ссылки*/
+  display: block;
   text-decoration: none;
   color: #fff;
   cursor: pointer;
 }
 
-.content__video-card { /*article*/
+.content__video-card {
+  /*article*/
   /*расположить элементы внутри контейнера в строку прижав к началу по дополнительной(поперечной) оси */
   display: flex;
   align-items: start;
 }
 
-.content__video-card-description-container {  /**div/
+.content__video-card-description-container {
+  /**div/
   /*сделать так чтобы он занимал все доступное пространство не занятое картинкой*/
+  flex: 1;
+  align-items: start;
   inline-size: 100%;
+  
 }
 
-.content__video-card-title { /**h2/
+.content__video-card-title {
+  /**h2/
   /*оформить текст*/
+  inline-size: 195px;
+  overflow: hidden;
+  text-overflow: ellipsis;
   font-family: Oswald, sans-serif;
   text-transform: uppercase;
   font-size: 30px;
   font-weight: 700;
   line-height: 30px;
-  padding-bottom: 6px;
+  padding-block-end: 6px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  
 }
 
-.content__video-card-description { /*p*/
+.content__video-card-description {
+  /*p*/
   /*присмотреться к высоте линии*/
   font-family: Fira Sans Condensed, sans-serif;
   font-size: 18px;
@@ -286,48 +327,70 @@ ol {
   line-height: 16px;
 }
 
-.content__video-card-thumbnail { /*img */
+.content__video-card-thumbnail {
+  /*img */
   /*задать размеры и замостить в них изображение*/
   max-width: 194px;
   width: 100%;
   height: 103px;
-  
 }
 
 /*ТЕМПЛЕЙТЫ используется как контейнера для хранения HTML-кода для дальнейшего использования в JavaScript*/
 /*шаблон прелоадера*/
-.preloader-template { /*template*/
+.preloader-template {
+  /*template*/
 }
 
-.preloader {  /*div*/
+.preloader {
+  /*div*/
 }
 
-.preloader-chasing-squares { /*div*/
+.preloader-chasing-squares {
+  /*div*/
 }
 
-.square { /*div*/
+.square {
+  /*div*/
 }
 
 /*ТЕМПЛЕЙТЫ используется как контейнера для хранения HTML-кода для дальнейшего использования в JavaScript*/
 /*шаблон кнопки "ПОКАЗАТЬ ЕЩЁ"*/
-.more-button-template { /*template*/
-
-  
+.more-button-template {
+  /*template*/
+ 
 }
 
-.button .more-button { /*li <button>*/
+ .more-button {
+  /*li <button>*/
+  width: 399px;
   
-  
+
 }
 
 /*ТЕМПЛЕЙТЫ используется как контейнера для хранения HTML-кода для дальнейшего использования в JavaScript*/
 /*шаблон блока с ошибкой*/
-.error-template { /*template*/
+.error-template {
+  /*template*/
 }
-.error { /*div*/
+.error {
+  /*div*/
 }
 
-.error__title { /*h2*/
+.error__title {
+  /*h2*/
 }
 
 /*Наша задача - дополнить этот файл так , чтобы интерфейс соответствовал макету*/
+
+/* Кастомный скроллбар */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgb(217 217 217 / 10%);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #d9d9d9;
+}
