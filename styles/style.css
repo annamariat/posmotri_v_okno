@@ -375,9 +375,6 @@ ol {
   object-position: top right;
 }
 
-/*ТЕМПЛЕЙТЫ используется как контейнера для хранения HTML-кода для дальнейшего использования в JavaScript*/
-/*шаблон кнопки "ПОКАЗАТЬ ЕЩЁ"*/
-
 .more-button {
   /*li <button>*/
   inline-size: 100%;
